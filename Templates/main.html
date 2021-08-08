@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Workplace Complaint Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #000000;
+      line-height: 22px;
+      }
+      h1 {
+      margin: 15px 0;
+      font-weight: 400;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 3px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px #ccc;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input:hover, select:hover, textarea:hover {
+      outline: none;
+      border: 1px solid #095484;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 6px);
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 30px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      background-color: #095484;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #0666a3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="{% url 'result' %}" method="post">
+          {% csrf_token %}
+        <h1>HEART DISEASE IDENTIFIER</h1>
+        <div class="item">
+          <p>Your name</p>
+          <div>
+            <input type="text" name="name" placeholder="NAME " />
+
+          </div>
+        </div>
+          <H1>ENTER YOUR DETAILS to Check you have a Chance of HEART DISEASE of Not</H1>
+        <div class="item">
+
+          <p>AGE :</p>
+          <input type="number" name="age" required/>
+        </div>
+
+
+
+          <div class="item">
+          <p>Gender</p>
+          <select name="sex" required>
+            <option value="">*Please select*</option>
+            <option value="1">MALE</option>
+            <option value="0">FEMALE</option>
+          </select>
+        </div>
+
+        <div class="item">
+          <p>Chest Pain Type</p>
+          <select name="cp" required>
+            <option value="">*Please select*</option>
+            <option value="0"> Typical angina: chest pain related decrease blood supply to the heart</option>
+            <option value="1">Atypical angina: chest pain not related to heart</option>
+            <option value="2">Non-anginal pain: typically esophageal spasms (non heart related)</option>
+            <option value="3">Asymptomatic: chest pain not showing signs of disease</option>
+
+          </select>
+        </div>
+
+       <div class="item">
+
+          <p>Resting blood pressure <br>(in mm Hg on admission to the hospital) anything above 130-140 is typically cause for concern</p>
+          <input type="number" name="trestbps" required/>
+        </div>
+
+                 <div class="item">
+
+          <p>Serum cholesterol in mg/dl <br> above 200 is cause for concern</p>
+          <input type="number" name="chol" required/>
+        </div>
+
+           <div class="item">
+
+          <p>Fasting blood sugar <br> Greater than 126 mg/dL signals diabetes</p>
+          <input type="number" name="fbs" required/>
+        </div>
+        <div class="item">
+          <p> Resting electrocardiography results</p>
+          <select name="restecg" required>
+            <option value="">*Please select*</option>
+            <option value="0">Nothing to note</option>
+            <option value="1">ST-T Wave abnormality</option>
+            <option value="2">Possible or definite left ventricular hypertrophy</option>
+          </select>
+        </div>
+
+          <div class="item">
+
+          <p>Maximum Heart Rate Achieved <br> </p>
+          <input type="number" name="thalach" required/>
+        </div>
+        <div class="item">
+
+                 <div class="item">
+          <p>Exercise Induced Angina <br>When you climb stairs, exercise or walk, your heart demands more blood, but narrowed arteries slow down blood flow. Besides physical activity, other factors such as emotional stress, cold temperatures, heavy meals and smoking also can narrow arteries and trigger angina.</p>
+          <select name="exang" required>
+            <option value="">*Please select*</option>
+            <option value="1">YES</option>
+            <option value="0">NO</option>
+          </select>
+        </div>
+
+            <div class="item">
+
+          <p>OLD PEAK<br>ST depression induced by exercise relative to rest looks at stress of heart
+              during excercise unhealthy
+              heart will stress more<br>
+              **RANGE 0 - 3.5
+</p>
+          <input type="number" step="0.01" name="oldpeak" required/>
+        </div>
+
+            <div class="item">
+          <p>slope of the peak exercise ST segment.</p>
+          <select name="slope" required>
+            <option value="">*Please select*</option>
+            <option value="0">Upsloping: better heart rate with excercise (uncommon)</option>
+            <option value="1">Flatsloping: minimal change (typical healthy heart)</option>
+<option value="2">2: Downslopins: signs of unhealthy heart</option>
+          </select>
+        </div>
+     <div class="item">
+         <p>Number of major vessels (0-3) colored by flourosopy</p>          <select name="ca" required>
+            <option value="">*Please select*</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+         <option value="2">3</option>
+          </select>
+        </div>
+              <div class="item">
+
+          <p>Thallium stress result <br>1,3: normal<br>
+6: fixed defect: used to be defect but ok now<br>
+7: reversable defect: no proper blood movement when excercising </p>
+          <input type="number" name="thal" required/>
+        </div>
+
+        </div>
+        <div class="btn-block">
+          <button type="submit" href="/">Send</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
